@@ -96,6 +96,33 @@ cdef class VectorFeature:
     def geometry_type(self):
         return self.feature.geometry_type()
 
+#    @property
+#    def geometry(self):
+#        cdef GeometryAsWKT handler = GeometryAsWKT()
+#        cvtzero.decode_geometry(self.feature.geometry(), True, handler)
+#        return handler.data
+#
+# NOT TESTED - NEED PROPER CYTHON code 
+# The idea of this class is to return the geometry as a WTK
+# roughtly like https://github.com/mapbox/vtzero/blob/0a0afc97d78c477f49e737da4166bb6927da7a5e/examples/vtzero-show.cpp#L20-L93
+#cdef class GeometryAsWKT:
+#
+#    cdef char* data
+#    cdef points_begin(self, uint32_t count):
+#        pass
+#    
+#    cdef points_point(self, cvtzero.point point):
+#        self.data = b"POINT ("
+#        self.data += point.x
+#        self.data += b","
+#        self.data += point.y
+#        self.data += b")"
+#
+#    cdef points_end(self):
+#        pass
+#
+#    ADD POLYGON
+#    ADD LINESTRING
 
 cdef class Tile:
 

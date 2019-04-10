@@ -27,7 +27,10 @@ cdef extern from 'vtzero/geometry.hpp' namespace 'vtzero':
     ctypedef struct point:
         int32_t x
         int32_t y
-    cdef decode_point_geometry(const geometry geometry, bool strict, geom_handler)
+    
+    #cdef decode_point_geometry(const geometry geometry, bool strict, geom_handler)
+    # Use generic decode geometry
+    cdef decode_geometry(const geometry geometry, bool strict, geom_handler)
 
 
 cdef extern from 'vtzero/layer.hpp' namespace 'vtzero':
